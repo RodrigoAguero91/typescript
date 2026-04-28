@@ -1,20 +1,38 @@
-import { IUser } from "../../../types/IUser";
-import { Rol } from "../../../types/Rol";
+import type { IUser } from "../../../types/IUser";
 
-const form = document.getElementById("reg-form") as HTMLFormElement;
+const formRegistro = document.getElementById("form-registro") as HTMLFormElement;
 
-form.addEventListener("submit", (e) => {
+if (formRegistro) {
+    formRegistro.addEventListener("submit", (e) => {
         e.preventDefault();
-        const email = (document.getElementById("email") as HTMLInputElement).value;
-        const password = (document.getElementById("password") as HTMLInputElement).value;
 
-        const users: IUser[] = JSON.parse(localStorage.getItem("users") || "[]");
+        const emailInput = document.getElementById("email") as HTMLInputElement;
+        const passwordInput = document.getElementById("password") as HTMLInputElement;
 
-        const newUser: IUser = { email, password, rol: Rol.CLIENT };[cite: 1]
         
-        users.push(newUser);
-        localStorage.setItem("users", JSON.stringify(users));[cite: 1]
+        const nuevoUsuario: IUser = {
+            email: emailInput.value,
+            password: passwordInput.value,
+            rol: 'client'
+        };
+
+
+        const usuariosGuardados: IUser[] = JSON.parse(localStorage.getItem("users") || "[]");
+
+    
+        const existe = usuariosGuardados.find(u => u.email === nuevoUsuario.email);
+        if (existe) {
+            alert("Este correo ya está registrado.");
+            return;
+        }
+
         
-        alert("Registro exitoso");
+        usuariosGuardados.push(nuevoUsuario);
+        localStorage.setItem("users", JSON.stringify(usuariosGuardados));
+
+        alert("¡Registro exitoso! Ahora puedes iniciar sesión.");
+        
+
         window.location.href = "../login/index.html";
-});
+    });
+}

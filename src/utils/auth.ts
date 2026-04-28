@@ -1,19 +1,18 @@
-import { IUser } from "../types/IUser";
-    import { Rol } from "../types/Rol";
+export const checkAuth = () => {
+    const userData = JSON.parse(localStorage.getItem('userData') || 'null');
+    const path = window.location.pathname;
 
-    export const checkGuard = () => {
-        const userData = localStorage.getItem("userData");
-        const user: IUser | null = userData ? JSON.parse(userData) : null;
-        const path = window.location.pathname;
+    // Si intenta entrar a admin y no es admin[cite: 4]
+    if (path.includes('/admin/') && (!userData || userData.rol !== 'admin')) {
+        alert("No tienes permisos para acceder aquí");
+        window.location.href = '/pages/auth/login/';
+    }
+    
+    // Si intenta entrar a cualquier parte sin estar logueado
+    if (!userData && !path.includes('/auth/')) {
+        window.location.href = '/pages/auth/login/';
+    }
+};
 
-        // Si no hay sesión y no está en auth, redirigir al login[cite: 1]
-        if (!user && !path.includes("/auth/")) {
-            window.location.href = "/src/pages/auth/login/index.html";
-            return;
-        }
-
-        // Si es cliente e intenta entrar a admin, redirigir[cite: 1]
-        if (user?.rol === Rol.CLIENT && path.includes("/admin/")) {
-            window.location.href = "/src/pages/client/index.html";
-        }
-    };
+// Ejecutar al cargar la página
+checkAuth();

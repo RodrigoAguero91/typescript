@@ -2,39 +2,46 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Store - UTN</title>
-    <link rel="stylesheet" href="./src/css/styles.css">
+    <link rel="stylesheet" href="/src/css/styles.css">
 </head>
 <body>
-        <header> 
-            <h1>
-        🍔
-        Food Store</h1> 
-            <nav> 
-                <a href="#">Inicio</a> 
-                <a href="#">Mis Pedidos</a> 
-                <a href="#">Carrito</a> 
-                <a href="admin.html">Panel Admin</a> 
-            </nav> 
-        </header> 
-        <aside> 
-            <h2>Categorías</h2> 
-            <ul id="lista-categorias"></ul> 
-        </aside>  
-        <main> 
-            <form> 
-            <input type="text" placeholder="Buscar productos..."> 
-                <button type="submit">Buscar</button> 
-            </form> 
-            <h2>Productos Destacados</h2> 
-            <section id="contenedor-productos"></section> 
-        </main> 
-        <footer> 
-        <p>© 2024 Food Store. Todos los derechos reservados.</p> 
-            <p>Contacto: info@foodstore.com</p> 
-        </footer> 
+    <header> 
+        <h1>🍔 Food Store</h1> 
+        <nav id="menu-navegacion"> 
+            <a href="/">Inicio</a> 
+            <a href="/page/auth/login/index.html" id="link-login">Iniciar Sesión</a> 
+            <a href="/pages/auth/registro/index.html" id="link-registro">Registrarse</a>
+            
+            <a href="/pages/admin/" id="link-admin" style="display: none;">Panel Admin</a> 
+            <button id="btn-logout" style="display: none;">Cerrar Sesión</button>
+        </nav> 
+    </header> 
 
-    <script src="src/data.ts"></script>
+    <aside> 
+        <h2>Categorías</h2> 
+        <ul id="lista-categorias"></ul> 
+    </aside>  
+
+    <main> 
+        <form id="form-busqueda"> 
+            <input type="text" id="input-busqueda" placeholder="Buscar productos..."> 
+            <button type="submit">Buscar</button> 
+        </form> 
+        
+        <h2>Productos Destacados</h2> 
+        <section id="contenedor-productos">
+            
+        </section> 
+    </main> 
+
+    <footer> 
+        <p>© 2024 Food Store. Todos los derechos reservados.</p> 
+        <p>Contacto: info@foodstore.com</p> 
+    </footer> 
+
+    
     <script type="module" src="/src/main.ts"></script>
-  </body>
+</body>
 </html>
