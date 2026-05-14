@@ -1,17 +1,30 @@
-const validarLogin = (email: string, pass: string) => {
-    const usuarios: IUser[] = JSON.parse(localStorage.getItem('users') || '[]');
-    
-    // Buscar coincidencia
-    const usuarioEncontrado = usuarios.find(u => u.email === email && u.password === pass);
+import type { IUser } from "../../../types/IUser";
+import type { Rol } from "../../../types/Rol";
+import { navigate } from "../../../utils/navigate";
 
-    if (usuarioEncontrado) {
-        // Guardar solo los datos necesarios en 'userData' para iniciar sesión
-        const sessionData = { email: usuarioEncontrado.email, rol: usuarioEncontrado.rol };
-        localStorage.setItem('userData', JSON.stringify(sessionData));
-        
-        // Redirigir según el rol
-        window.location.href = usuarioEncontrado.rol === 'admin' ? '/pages/admin/' : '/';
-    } else {
-        alert("Credenciales incorrectas");
-    }
-};
+const form = document.getElementById("form") as HTMLFormElement;
+const inputEmail = document.getElementById("email") as HTMLInputElement;
+//const inputPassword = document.getElementById("password") as HTMLInputElement;
+const selectRol = document.getElementById("rol") as HTMLSelectElement;
+
+form.addEventListener("submit", (e: SubmitEvent) => {
+  e.preventDefault();
+  const valueEmail = inputEmail.value;
+  //const valuePassword = inputPassword.value;
+  const valueRol = selectRol.value as Rol;
+
+  if (valueRol === "admin") {
+    navigate("/src/pages/admin/home/home.html");
+  } else if (valueRol === "client") {
+    navigate("/src/pages/client/home/home.html");
+  }
+
+  const user: IUser = {
+    email: valueEmail,
+    role: valueRol,
+    loggedIn: true,
+  };
+
+  const parseUser = JSON.stringify(user);
+  localStorage.setItem("userData", parseUser);
+});

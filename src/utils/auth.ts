@@ -1,18 +1,33 @@
-export const checkAuth = () => {
-    const userData = JSON.parse(localStorage.getItem('userData') || 'null');
-    const path = window.location.pathname;
+import type { IUser } from "../types/IUser";
+import type { Rol } from "../types/Rol";
+import { getUSer, removeUser } from "./localStorage";
+import { navigate } from "./navigate";
 
-    // Si intenta entrar a admin y no es admin[cite: 4]
-    if (path.includes('/admin/') && (!userData || userData.rol !== 'admin')) {
-        alert("No tienes permisos para acceder aquí");
-        window.location.href = '/pages/auth/login/';
+export const checkAuhtUser = (
+  redireccion1: string,
+  redireccion2: string,
+  rol: Rol
+) => {
+  console.log("comienzo de checkeo");
+
+  const user = getUSer();
+
+  if (!user) {
+    console.log("no existe en local");
+    navigate(redireccion1);
+    return;
+  } else {
+    console.log("existe pero no tiene el rol necesario");
+
+    const parseUser: IUser = JSON.parse(user);
+    if (parseUser.role !== rol) {
+      navigate(redireccion2);
+      return;
     }
-    
-    // Si intenta entrar a cualquier parte sin estar logueado
-    if (!userData && !path.includes('/auth/')) {
-        window.location.href = '/pages/auth/login/';
-    }
+  }
 };
 
-// Ejecutar al cargar la página
-checkAuth();
+export const logout = () => {
+  removeUser();
+  navigate("/src/pages/auth/login/login.html");
+};
