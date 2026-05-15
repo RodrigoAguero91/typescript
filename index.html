@@ -1,17 +1,26 @@
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vite + TS</title>
+  <meta charset="UTF-8">
+  <title>Food Store - Inicio</title>
+  <link rel="stylesheet" href="./src//css/styles.css">
 </head>
-
 <body>
-  <script>
-    window.location.href = 'src/pages/auth/login/login.html'
-  </script>
-</body>
+  <header>
+    <h1>Food Store</h1>
+    <nav>
+      <a href="./src/pages/admin/home.html">Login</a>
+      <a href="./src/pages/login/home.html">Registro</a>
+      <a href="./src/pages/client/home/home.html">Zona Cliente</a>
+      <a href="./src/pages/admin/home.html">Zona Admin</a>
+    </nav>
+  </header>
 
-</html>
+  <aside>
+    <h2>Categorías</h2>
+    <ul id="lista-categorias"></ul>
+  </aside>
+
+  <main>
+    <h2>Bienvenido a Food Store</h2>
+    <p>Selecciona una categoría para ver

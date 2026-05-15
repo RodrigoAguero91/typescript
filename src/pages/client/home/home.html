@@ -1,16 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>Food Store</title>
+  <link rel="stylesheet" href="../../../css/styles.css">
 </head>
-
 <body>
-    <h1>Hola desde el cliente</h1>
-    <button id="logoutButton">Logout</button>
-    <script type="module" src="./home.ts"></script>
-</body>
+  <header>
+    <h1>Food Store</h1>
+    <nav>
+      <a href="../home/home.html">Salir</a>
+    </nav>
+  </header>
 
+  <aside>
+    <h2>Categorías</h2>
+    <ul id="lista-categorias"></ul>
+  </aside>
+
+  <main>
+    <h2>Productos</h2>
+    <div id="contenedor-productos"></div>
+  </main>
+
+  <footer>
+    <p>© 2026 Food Store</p>
+  </footer>
+
+  <script src="../../data.js"></script>
+  <script src="../../main.js"></script>
+</body>
 </html>
