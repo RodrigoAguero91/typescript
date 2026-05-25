@@ -1,1 +1,2 @@
-export type Rol = "client" | "admin";
+// src/types/rol.ts
+export type Rol = 'admin' | 'client';

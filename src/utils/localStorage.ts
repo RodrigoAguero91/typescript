@@ -1,4 +1,4 @@
-import type { IUser } from "../types/IUser";
+import type { IUser } from "../types/iuser";
 
 export const saveUser = (user: IUser) => {
   const parseUser = JSON.stringify(user);
