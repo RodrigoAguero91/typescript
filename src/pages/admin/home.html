@@ -1,24 +1,21 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Zona Admin</title>
-  <link rel="stylesheet" href="../../css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store - Administración</title>
 </head>
 <body>
-  <header>
-    <h1>Panel de Administración</h1>
-    <nav><a href="../admin/home.html">Salir</a></nav>
-  </header>
+    <header style="background-color: #800000; color: white; padding: 10px;">
+        <h1>Panel de Control de Administrador</h1>
+        <button id="btn-logout-admin">Cerrar Sesión</button>
+    </header>
+    
+    <main>
+        <h3>Gestión de Alimentos y Configuración</h3>
+        <p>⚠️ Contenido restringido únicamente para usuarios con rol "admin".</p>
+    </main>
 
-  <main>
-    <h2>Gestión de Productos</h2>
-    <p>Aquí solo acceden usuarios con rol admin.</p>
-  </main>
-
-  <footer><p>© 2026 Food Store</p></footer>
-
-  <script src="../../main.js"></script>
+    <script type="module" src="/src/pages/admin/admin.ts"></script>
 </body>
 </html>
-

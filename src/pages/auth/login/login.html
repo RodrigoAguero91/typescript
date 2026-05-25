@@ -1,31 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="../../../css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store - Login</title>
 </head>
 <body>
-  <header>
-    <h1>Food Store</h1>
-    <nav>
-      <a href="..//login/login.html">Registro</a>
-    </nav>
-  </header>
+    <main class="auth-container">
+        <h2>Iniciar Sesión</h2>
+        <form id="form-login">
+            <div class="form-group">
+                <label for="login-email">Correo Electrónico:</label>
+                <input type="email" id="login-email" required placeholder="ejemplo@correo.com">
+            </div>
+            <div class="form-group">
+                <label for="login-password">Contraseña:</label>
+                <input type="password" id="login-password" required placeholder="********">
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
+        <p>¿No tenés cuenta? <a href="/src/pages/auth/registro/index.html">Registrate acá</a></p>
+    </main>
 
-  <main>
-    <h2>Iniciar Sesión</h2>
-    <form id="form-login">
-      <input type="email" id="email" placeholder="Email" required>
-      <input type="password" id="password" placeholder="Contraseña" required>
-      <button type="submit">Ingresar</button>
-    </form>
-  </main>
-
-  <footer>
-    <p>© 2026 Food Store</p>
-  </footer>
-
-  <script src="login.js"></script>
+    <script type="module" src="/src/pages/auth/login/login.ts"></script>
 </body>
 </html>

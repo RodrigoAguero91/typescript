@@ -1,33 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Food Store</title>
-  <link rel="stylesheet" href="../../../css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store - Panel Cliente</title>
 </head>
 <body>
-  <header>
-    <h1>Food Store</h1>
-    <nav>
-      <a href="../home/home.html">Salir</a>
-    </nav>
-  </header>
+    <header>
+        <h1>Bienvenido a Food Store</h1>
+        <button id="btn-logout">Cerrar Sesión</button>
+    </header>
+    
+    <main>
+        <h3>Tu Zona de Compras</h3>
+        <p>Acá va el contenido dinámico de la tienda para los clientes autorizados.</p>
+    </main>
 
-  <aside>
-    <h2>Categorías</h2>
-    <ul id="lista-categorias"></ul>
-  </aside>
-
-  <main>
-    <h2>Productos</h2>
-    <div id="contenedor-productos"></div>
-  </main>
-
-  <footer>
-    <p>© 2026 Food Store</p>
-  </footer>
-
-  <script src="../../data.js"></script>
-  <script src="../../main.js"></script>
-</body>
+    <script type="module" src="/src/pages/client/client.ts"></script>
 </html>
